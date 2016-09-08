@@ -108,7 +108,7 @@ a bunyan stream.
 
 Example:
 
-log-file.js:
+`log-file.js`:
 
 ```js
 'use strict';
@@ -135,7 +135,7 @@ const log = bunyan.createLogger({
 });
 ```
 
-Some bunyan packages are suitable to be passed in `streamTypes` as-is, e.g.:
+Some bunyan packages are suitable to be passed in `streamTypes` as is, e.g.:
 
 ```js
 const log = bunyan.createLogger({
