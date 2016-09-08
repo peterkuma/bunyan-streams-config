@@ -1,0 +1,30 @@
+{
+  "name": "bunyan-streams-config",
+  "version": "1.0.0",
+  "description": "Create bunyan streams from JSON configuration",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterkuma/bunyan-streams-config.git"
+  },
+  "keywords": [
+    "bunyan",
+    "logging",
+    "log",
+    "json"
+  ],
+  "author": "Peter Kuma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peterkuma/bunyan-streams-config/issues"
+  },
+  "homepage": "https://github.com/peterkuma/bunyan-streams-config#readme",
+  "dependencies": {
+    "bunyan-prettystream": "^0.1.3",
+    "lodash": "^4.15.0"
+  }
+}
