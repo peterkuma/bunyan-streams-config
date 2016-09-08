@@ -155,4 +155,4 @@ License
 -------
 
 Bunyan Streams Config is provided under the terms of the MIT license
-(see LICENSE.md).
+(see [LICENSE.md](LICENSE.md)).
