@@ -41,7 +41,7 @@ log.error("D'oh!");
 would create two streams, one directed to the console (pretty-printed),
 the other to a file.
 
-bunyan-streams-config is similar to [bunyan-config](https://www.npmjs.com/package/bunyan-config),
+bunyan-streams-config is similar to [bunyan-config](https://github.com/edappy/bunyan-config),
 but with a few differences:
 
 - you can add custom stream types as a second argument to `bunyanStreamsConfig`
