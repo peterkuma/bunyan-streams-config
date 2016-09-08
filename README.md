@@ -10,29 +10,33 @@ technical details of bunyan or node.
 
 In a config file:
 
-    "log": [
-      {
-        "type": "console-pretty",
-        "level": "debug"
-      },
-      {
-        "type": "file",
-        "path": "app.log"
-      }
-    ]
+```json
+"log": [
+  {
+    "type": "console-pretty",
+    "level": "debug"
+  },
+  {
+    "type": "file",
+    "path": "app.log"
+  }
+]
+```
 
 in application:
 
-    const bunyan = require('bunyan');
-    const bunyanStreamsConfig = require('bunyan-streams-config');
-    const config = // Load JSON config
+```js
+const bunyan = require('bunyan');
+const bunyanStreamsConfig = require('bunyan-streams-config');
+const config = // Load JSON config
 
-    const log = bunyan.createLogger({
-      name: 'my-app',
-      streams: bunyanStreamsConfig(config.log)
-    });
+const log = bunyan.createLogger({
+  name: 'my-app',
+  streams: bunyanStreamsConfig(config.log)
+});
 
-    log.error("D\'oh!");
+log.error("D'oh!");
+```
 
 would create two streams, one directed to the console (pretty-printed),
 the other to a file.
@@ -106,37 +110,43 @@ Example:
 
 log-file.js:
 
-    'use strict';
+```js
+'use strict';
 
-    const _ = require('lodash');
+const _ = require('lodash');
 
-    module.exports = function createStream(options) {
-      return _.defaults({
-        stream: process.stderr
-      }, options);
-    };
+module.exports = function createStream(options) {
+  return _.defaults({
+    stream: process.stderr
+  }, options);
+};
+```
 
 in application:
 
-    const log = bunyan.createLogger({
-      name: 'my-app',
-      streams: bunyanStreamsConfig(config.log, {
-        streamTypes: {
-          'file': require('log-file.js')
-        }
-      })
-    });
+```js
+const log = bunyan.createLogger({
+  name: 'my-app',
+  streams: bunyanStreamsConfig(config.log, {
+    streamTypes: {
+      'file': require('log-file.js')
+    }
+  })
+});
+```
 
 Some bunyan packages are suitable to be passed in `streamTypes` as-is, e.g.:
 
-    const log = bunyan.createLogger({
-      name: 'my-app',
-      streams: bunyanStreamsConfig(config.log, {
-        streamTypes: {
-          'seq': require('bunyan-seq').createStream
-        }
-      })
-    });
+```js
+const log = bunyan.createLogger({
+  name: 'my-app',
+  streams: bunyanStreamsConfig(config.log, {
+    streamTypes: {
+      'seq': require('bunyan-seq').createStream
+    }
+  })
+});
+```
 
 for logging to Seq. The output of the function should be an object normally
 passed to `bunyan.createLogger` as an item of the `streams` array.
