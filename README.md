@@ -94,11 +94,15 @@ Console/stderr stream (pretty-printed with bunyan-prettystream).
 
 ### file
 
-File stream (bunyan JSON objects).
+File stream (bunyan JSON objects). Options:
+
+- **path**: Log file path.
 
 ### file-pretty
 
-File stream (pretty-printed with bunyan-prettystream).
+File stream (pretty-printed with bunyan-prettystream). Options:
+
+- **path**: Log file path.
 
 Custom Stream Types
 -------------------
